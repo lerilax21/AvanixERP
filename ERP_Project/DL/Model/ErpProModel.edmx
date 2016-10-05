@@ -1,0 +1,2259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Bank">
+          <Key>
+            <PropertyRef Name="bank_Id" />
+          </Key>
+          <Property Name="bank_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="bank_code" Type="varchar" MaxLength="15" />
+          <Property Name="bank_name" Type="varchar" MaxLength="50" />
+          <Property Name="reference" Type="varchar" MaxLength="30" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Bank_Master">
+          <Key>
+            <PropertyRef Name="bankmaster_Id" />
+          </Key>
+          <Property Name="bankmaster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="30" />
+          <Property Name="branch" Type="nchar" MaxLength="10" />
+          <Property Name="acc_no" Type="varchar" MaxLength="30" />
+          <Property Name="acc_type" Type="int" />
+          <Property Name="cntp_person_Id" Type="int" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="iban" Type="varchar" MaxLength="15" />
+          <Property Name="ifsc" Type="varchar" MaxLength="15" />
+          <Property Name="swift" Type="varchar" MaxLength="15" />
+          <Property Name="micr" Type="nchar" MaxLength="10" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Base_Unit">
+          <Key>
+            <PropertyRef Name="bu_Id" />
+          </Key>
+          <Property Name="bu_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="bu_name" Type="varchar" MaxLength="30" />
+          <Property Name="decimal" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Brand_Master">
+          <Key>
+            <PropertyRef Name="brandmaster_Id" />
+          </Key>
+          <Property Name="brandmaster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="manuf_Id" Type="int" />
+          <Property Name="bp_Id" Type="int" />
+          <Property Name="brand_name" Type="varchar" MaxLength="30" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_BusinessPartner_Master">
+          <Key>
+            <PropertyRef Name="bp_Id" />
+          </Key>
+          <Property Name="bp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="currency_Id" Type="int" />
+          <Property Name="cntp_Id" Type="int" />
+          <Property Name="bp_name" Type="varchar" MaxLength="30" />
+          <Property Name="bp_type" Type="int" />
+          <Property Name="order_type" Type="int" />
+          <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="credit_limit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="tax_id1" Type="int" />
+          <Property Name="tax_id2" Type="int" />
+          <Property Name="perm_accno" Type="varchar" MaxLength="30" />
+          <Property Name="note" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="err_msg" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Cntp_Person">
+          <Key>
+            <PropertyRef Name="cntp_Id" />
+          </Key>
+          <Property Name="cntp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cntp_name" Type="varchar" MaxLength="30" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="salution" Type="varchar" MaxLength="15" />
+          <Property Name="cntp_lastname" Type="varchar" MaxLength="30" />
+          <Property Name="cntp_displayname" Type="varchar" MaxLength="30" />
+          <Property Name="designation_Id" Type="int" />
+          <Property Name="office_phone" Type="varchar" MaxLength="20" />
+          <Property Name="mobile" Type="varchar" MaxLength="20" />
+          <Property Name="fax" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="20" />
+          <Property Name="website" Type="varchar" MaxLength="20" />
+          <Property Name="addr1" Type="varchar" MaxLength="100" />
+          <Property Name="addr2" Type="varchar" MaxLength="100" />
+          <Property Name="city" Type="varchar" MaxLength="30" />
+          <Property Name="area" Type="varchar" MaxLength="30" />
+          <Property Name="state_id" Type="int" />
+          <Property Name="zip_code" Type="varchar" MaxLength="15" />
+          <Property Name="map" Type="varchar" MaxLength="30" />
+          <Property Name="note" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="err_msg" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Company_Master">
+          <Key>
+            <PropertyRef Name="cmpny_Id" />
+          </Key>
+          <Property Name="cmpny_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_code" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="cmpny_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="display_name" Type="varchar" MaxLength="30" />
+          <Property Name="startdate" Type="datetime" />
+          <Property Name="cin" Type="varchar" MaxLength="30" />
+          <Property Name="base_currency_code" Type="int" />
+          <Property Name="reg_phone" Type="varchar" MaxLength="30" />
+          <Property Name="reg_phone_status" Type="int" />
+          <Property Name="reg_email" Type="varchar" MaxLength="30" />
+          <Property Name="reg_email_status" Type="int" />
+          <Property Name="tin" Type="varchar" MaxLength="30" />
+          <Property Name="tan" Type="varchar" MaxLength="30" />
+          <Property Name="pan" Type="varchar" MaxLength="30" />
+          <Property Name="cst" Type="varchar" MaxLength="30" />
+          <Property Name="gst" Type="varchar" MaxLength="30" />
+          <Property Name="cntp_person_Id" Type="int" />
+          <Property Name="eu_code" Type="varchar" MaxLength="15" />
+          <Property Name="eu_name" Type="varchar" MaxLength="30" />
+          <Property Name="logo" Type="varchar" MaxLength="80" />
+          <Property Name="note" Type="varchar" MaxLength="80" />
+          <Property Name="status" Type="int" />
+          <Property Name="err_msg" Type="varchar" MaxLength="80" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Country_Master">
+          <Key>
+            <PropertyRef Name="cntry_Id" />
+          </Key>
+          <Property Name="cntry_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cntry_name" Type="varchar" MaxLength="30" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Currency_Master">
+          <Key>
+            <PropertyRef Name="currency_id" />
+          </Key>
+          <Property Name="currency_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="decimal" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Item_Group">
+          <Key>
+            <PropertyRef Name="itemgrp_Id" />
+          </Key>
+          <Property Name="itemgrp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="taxmaster_Id" Type="int" />
+          <Property Name="itemgrp_name" Type="varchar" MaxLength="30" />
+          <Property Name="cess" Type="varchar" MaxLength="15" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Item_Master">
+          <Key>
+            <PropertyRef Name="itemmaster_Id" />
+          </Key>
+          <Property Name="itemmaster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="itemtype_Id" Type="int" />
+          <Property Name="bu_Id" Type="int" />
+          <Property Name="manuf_Id" Type="int" />
+          <Property Name="bp_id" Type="int" />
+          <Property Name="item_name" Type="varchar" MaxLength="30" />
+          <Property Name="std" Type="int" />
+          <Property Name="sup_barcode" Type="varchar" MaxLength="50" />
+          <Property Name="srch_key" Type="varchar" MaxLength="50" />
+          <Property Name="itemgrp_Id" Type="int" />
+          <Property Name="barcode" Type="varchar" MaxLength="50" />
+          <Property Name="mrp" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="retail_price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="purchase_price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="item_cost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="inventory_val" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="rec_level" Type="int" />
+          <Property Name="rec_qry" Type="int" />
+          <Property Name="eco_order_qty" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Item_Type">
+          <Key>
+            <PropertyRef Name="itemtype_Id" />
+          </Key>
+          <Property Name="itemtype_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="itemtype_name" Type="varchar" MaxLength="30" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Manufacturer">
+          <Key>
+            <PropertyRef Name="manuf_Id" />
+          </Key>
+          <Property Name="manuf_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="bp_Id" Type="int" />
+          <Property Name="manuf_name" Type="varchar" MaxLength="30" />
+          <Property Name="reference" Type="varchar" MaxLength="30" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Payment_Mode">
+          <Key>
+            <PropertyRef Name="pmode_Id" />
+          </Key>
+          <Property Name="pmode_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpany_id" Type="int" />
+          <Property Name="bank_Id" Type="int" />
+          <Property Name="pmode_name" Type="varchar" MaxLength="30" />
+          <Property Name="pmode_transaction" Type="int" />
+          <Property Name="acc_mode" Type="varchar" MaxLength="30" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_State_Master">
+          <Key>
+            <PropertyRef Name="state_Id" />
+          </Key>
+          <Property Name="state_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="state_name" Type="varchar" MaxLength="30" />
+          <Property Name="cntry_Id" Type="int" Nullable="false" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Tax">
+          <Key>
+            <PropertyRef Name="tax_id" />
+          </Key>
+          <Property Name="tax_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_id" Type="int" />
+          <Property Name="tax_name" Type="varchar" MaxLength="30" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Tax_Master">
+          <Key>
+            <PropertyRef Name="taxmaster_Id" />
+          </Key>
+          <Property Name="taxmaster_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_Id" Type="int" />
+          <Property Name="tax" Type="varchar" MaxLength="15" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="percentage" Type="float" />
+          <Property Name="reference" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_TransactionLog_Master">
+          <Key>
+            <PropertyRef Name="translog_Id" />
+          </Key>
+          <Property Name="translog_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transaction_Id" Type="varchar" MaxLength="35" />
+          <Property Name="cmpny_id" Type="int" />
+          <Property Name="transaction_date" Type="datetime" />
+          <Property Name="transaction_status" Type="int" />
+          <Property Name="user_Id" Type="int" />
+          <Property Name="log_msg" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="user_Id" />
+          </Key>
+          <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_id" Type="int" />
+          <Property Name="first_name" Type="varchar" MaxLength="30" />
+          <Property Name="last_name" Type="varchar" MaxLength="30" />
+          <Property Name="user_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="129" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="25" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="website" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="30" />
+          <Property Name="area" Type="varchar" MaxLength="30" />
+          <Property Name="state_id" Type="int" />
+          <Property Name="zip_code" Type="varchar" MaxLength="30" />
+          <Property Name="desig" Type="varchar" MaxLength="30" />
+          <Property Name="status" Type="int" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="updatedby" Type="int" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="updateddate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_tbl_Bank_Master_tbl_Bank">
+          <End Role="tbl_Bank" Type="Self.tbl_Bank" Multiplicity="1" />
+          <End Role="tbl_Bank_Master" Type="Self.tbl_Bank_Master" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bank">
+              <PropertyRef Name="bank_Id" />
+            </Principal>
+            <Dependent Role="tbl_Bank_Master">
+              <PropertyRef Name="bankmaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Bank_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Bank_Master" Type="Self.tbl_Bank_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Bank_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Bank_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Bank" Type="Self.tbl_Bank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Bank">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Base_Unit_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Base_Unit" Type="Self.tbl_Base_Unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Base_Unit">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Brand_Master_tbl_BusinessPartner_Master">
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="0..1" />
+          <End Role="tbl_Brand_Master" Type="Self.tbl_Brand_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="bp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Brand_Master">
+              <PropertyRef Name="bp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Brand_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Brand_Master" Type="Self.tbl_Brand_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Brand_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Brand_Master_tbl_Manufacturer">
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="0..1" />
+          <End Role="tbl_Brand_Master" Type="Self.tbl_Brand_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Manufacturer">
+              <PropertyRef Name="manuf_Id" />
+            </Principal>
+            <Dependent Role="tbl_Brand_Master">
+              <PropertyRef Name="manuf_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusinessPartner_Master_tbl_Cntp_Person">
+          <End Role="tbl_Cntp_Person" Type="Self.tbl_Cntp_Person" Multiplicity="0..1" />
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Cntp_Person">
+              <PropertyRef Name="cntp_Id" />
+            </Principal>
+            <Dependent Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="cntp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusinessPartner_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusinessPartner_Master_tbl_Currency_Master">
+          <End Role="tbl_Currency_Master" Type="Self.tbl_Currency_Master" Multiplicity="0..1" />
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Currency_Master">
+              <PropertyRef Name="currency_id" />
+            </Principal>
+            <Dependent Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="currency_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Cntp_Person_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Cntp_Person" Type="Self.tbl_Cntp_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Cntp_Person">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Cntp_Person_tbl_State_Master">
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="0..1" />
+          <End Role="tbl_Cntp_Person" Type="Self.tbl_Cntp_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_State_Master">
+              <PropertyRef Name="state_Id" />
+            </Principal>
+            <Dependent Role="tbl_Cntp_Person">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Currency_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Currency_Master" Type="Self.tbl_Currency_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Currency_Master">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Group_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Group" Type="Self.tbl_Item_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Group">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Group_tbl_Tax_Master">
+          <End Role="tbl_Tax_Master" Type="Self.tbl_Tax_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Group" Type="Self.tbl_Item_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Tax_Master">
+              <PropertyRef Name="taxmaster_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Group">
+              <PropertyRef Name="taxmaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Base_Unit">
+          <End Role="tbl_Base_Unit" Type="Self.tbl_Base_Unit" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Base_Unit">
+              <PropertyRef Name="bu_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="bu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_BusinessPartner_Master">
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="bp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="bp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Item_Group">
+          <End Role="tbl_Item_Group" Type="Self.tbl_Item_Group" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Item_Group">
+              <PropertyRef Name="itemgrp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="itemgrp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Manufacturer">
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Manufacturer">
+              <PropertyRef Name="manuf_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="manuf_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Type_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Type" Type="Self.tbl_Item_Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Type">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Manufacturer_tbl_BusinessPartner_Master">
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="0..1" />
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="bp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Manufacturer">
+              <PropertyRef Name="bp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Manufacturer_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Manufacturer">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Payment_Mode_tbl_Bank">
+          <End Role="tbl_Bank" Type="Self.tbl_Bank" Multiplicity="0..1" />
+          <End Role="tbl_Payment_Mode" Type="Self.tbl_Payment_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bank">
+              <PropertyRef Name="bank_Id" />
+            </Principal>
+            <Dependent Role="tbl_Payment_Mode">
+              <PropertyRef Name="bank_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Payment_Mode_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Payment_Mode" Type="Self.tbl_Payment_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Payment_Mode">
+              <PropertyRef Name="cmpany_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_State_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_State_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_State_Master_tbl_Country_Master">
+          <End Role="tbl_Country_Master" Type="Self.tbl_Country_Master" Multiplicity="1" />
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_Master">
+              <PropertyRef Name="cntry_Id" />
+            </Principal>
+            <Dependent Role="tbl_State_Master">
+              <PropertyRef Name="cntry_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tax_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Tax_Master" Type="Self.tbl_Tax_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Tax_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tax_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Tax" Type="Self.tbl_Tax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Tax">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TransactionLog_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_TransactionLog_Master" Type="Self.tbl_TransactionLog_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_TransactionLog_Master">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_User_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_User">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_User_tbl_State_Master">
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="0..1" />
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_State_Master">
+              <PropertyRef Name="state_Id" />
+            </Principal>
+            <Dependent Role="tbl_User">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="tbl_Bank" EntityType="Self.tbl_Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Bank_Master" EntityType="Self.tbl_Bank_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Base_Unit" EntityType="Self.tbl_Base_Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Brand_Master" EntityType="Self.tbl_Brand_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_BusinessPartner_Master" EntityType="Self.tbl_BusinessPartner_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Cntp_Person" EntityType="Self.tbl_Cntp_Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Company_Master" EntityType="Self.tbl_Company_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Country_Master" EntityType="Self.tbl_Country_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Currency_Master" EntityType="Self.tbl_Currency_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Item_Group" EntityType="Self.tbl_Item_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Item_Master" EntityType="Self.tbl_Item_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Item_Type" EntityType="Self.tbl_Item_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Manufacturer" EntityType="Self.tbl_Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Payment_Mode" EntityType="Self.tbl_Payment_Mode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_State_Master" EntityType="Self.tbl_State_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Tax" EntityType="Self.tbl_Tax" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Tax_Master" EntityType="Self.tbl_Tax_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TransactionLog_Master" EntityType="Self.tbl_TransactionLog_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_Bank_Master_tbl_Bank" Association="Self.FK_tbl_Bank_Master_tbl_Bank">
+            <End Role="tbl_Bank" EntitySet="tbl_Bank" />
+            <End Role="tbl_Bank_Master" EntitySet="tbl_Bank_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Bank_Master_tbl_Company_Master" Association="Self.FK_tbl_Bank_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Bank_Master" EntitySet="tbl_Bank_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Bank_tbl_Company_Master" Association="Self.FK_tbl_Bank_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Bank" EntitySet="tbl_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Base_Unit_tbl_Company_Master" Association="Self.FK_tbl_Base_Unit_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Base_Unit" EntitySet="tbl_Base_Unit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Brand_Master_tbl_BusinessPartner_Master" Association="Self.FK_tbl_Brand_Master_tbl_BusinessPartner_Master">
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+            <End Role="tbl_Brand_Master" EntitySet="tbl_Brand_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Brand_Master_tbl_Company_Master" Association="Self.FK_tbl_Brand_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Brand_Master" EntitySet="tbl_Brand_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Brand_Master_tbl_Manufacturer" Association="Self.FK_tbl_Brand_Master_tbl_Manufacturer">
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+            <End Role="tbl_Brand_Master" EntitySet="tbl_Brand_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusinessPartner_Master_tbl_Cntp_Person" Association="Self.FK_tbl_BusinessPartner_Master_tbl_Cntp_Person">
+            <End Role="tbl_Cntp_Person" EntitySet="tbl_Cntp_Person" />
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusinessPartner_Master_tbl_Company_Master" Association="Self.FK_tbl_BusinessPartner_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusinessPartner_Master_tbl_Currency_Master" Association="Self.FK_tbl_BusinessPartner_Master_tbl_Currency_Master">
+            <End Role="tbl_Currency_Master" EntitySet="tbl_Currency_Master" />
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Cntp_Person_tbl_Company_Master" Association="Self.FK_tbl_Cntp_Person_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Cntp_Person" EntitySet="tbl_Cntp_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Cntp_Person_tbl_State_Master" Association="Self.FK_tbl_Cntp_Person_tbl_State_Master">
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+            <End Role="tbl_Cntp_Person" EntitySet="tbl_Cntp_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Currency_Master_tbl_Company_Master" Association="Self.FK_tbl_Currency_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Currency_Master" EntitySet="tbl_Currency_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Group_tbl_Company_Master" Association="Self.FK_tbl_Item_Group_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Item_Group" EntitySet="tbl_Item_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Group_tbl_Tax_Master" Association="Self.FK_tbl_Item_Group_tbl_Tax_Master">
+            <End Role="tbl_Tax_Master" EntitySet="tbl_Tax_Master" />
+            <End Role="tbl_Item_Group" EntitySet="tbl_Item_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Base_Unit" Association="Self.FK_tbl_Item_Master_tbl_Base_Unit">
+            <End Role="tbl_Base_Unit" EntitySet="tbl_Base_Unit" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_BusinessPartner_Master" Association="Self.FK_tbl_Item_Master_tbl_BusinessPartner_Master">
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Company_Master" Association="Self.FK_tbl_Item_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Item_Group" Association="Self.FK_tbl_Item_Master_tbl_Item_Group">
+            <End Role="tbl_Item_Group" EntitySet="tbl_Item_Group" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Manufacturer" Association="Self.FK_tbl_Item_Master_tbl_Manufacturer">
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Type_tbl_Company_Master" Association="Self.FK_tbl_Item_Type_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Item_Type" EntitySet="tbl_Item_Type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Manufacturer_tbl_BusinessPartner_Master" Association="Self.FK_tbl_Manufacturer_tbl_BusinessPartner_Master">
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Manufacturer_tbl_Company_Master" Association="Self.FK_tbl_Manufacturer_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Payment_Mode_tbl_Bank" Association="Self.FK_tbl_Payment_Mode_tbl_Bank">
+            <End Role="tbl_Bank" EntitySet="tbl_Bank" />
+            <End Role="tbl_Payment_Mode" EntitySet="tbl_Payment_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Payment_Mode_tbl_Company_Master" Association="Self.FK_tbl_Payment_Mode_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Payment_Mode" EntitySet="tbl_Payment_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_State_Master_tbl_Company_Master" Association="Self.FK_tbl_State_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_State_Master_tbl_Country_Master" Association="Self.FK_tbl_State_Master_tbl_Country_Master">
+            <End Role="tbl_Country_Master" EntitySet="tbl_Country_Master" />
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tax_Master_tbl_Company_Master" Association="Self.FK_tbl_Tax_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Tax_Master" EntitySet="tbl_Tax_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tax_tbl_Company_Master" Association="Self.FK_tbl_Tax_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Tax" EntitySet="tbl_Tax" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TransactionLog_Master_tbl_Company_Master" Association="Self.FK_tbl_TransactionLog_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_TransactionLog_Master" EntitySet="tbl_TransactionLog_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_User_tbl_Company_Master" Association="Self.FK_tbl_User_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_User" EntitySet="tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_User_tbl_State_Master" Association="Self.FK_tbl_User_tbl_State_Master">
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+            <End Role="tbl_User" EntitySet="tbl_User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Bank">
+          <Key>
+            <PropertyRef Name="bank_Id" />
+          </Key>
+          <Property Name="bank_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="bank_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="bank_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Bank_Master" Relationship="Self.FK_tbl_Bank_Master_tbl_Bank" FromRole="tbl_Bank" ToRole="tbl_Bank_Master" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Bank_tbl_Company_Master" FromRole="tbl_Bank" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Payment_Mode" Relationship="Self.FK_tbl_Payment_Mode_tbl_Bank" FromRole="tbl_Bank" ToRole="tbl_Payment_Mode" />
+        </EntityType>
+        <EntityType Name="tbl_Bank_Master">
+          <Key>
+            <PropertyRef Name="bankmaster_Id" />
+          </Key>
+          <Property Name="bankmaster_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="branch" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="acc_no" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="acc_type" Type="Int32" />
+          <Property Name="cntp_person_Id" Type="Int32" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="iban" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ifsc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="swift" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="micr" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Bank" Relationship="Self.FK_tbl_Bank_Master_tbl_Bank" FromRole="tbl_Bank_Master" ToRole="tbl_Bank" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Bank_Master_tbl_Company_Master" FromRole="tbl_Bank_Master" ToRole="tbl_Company_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Base_Unit">
+          <Key>
+            <PropertyRef Name="bu_Id" />
+          </Key>
+          <Property Name="bu_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="bu_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="decimal" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Base_Unit_tbl_Company_Master" FromRole="tbl_Base_Unit" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Item_Master" Relationship="Self.FK_tbl_Item_Master_tbl_Base_Unit" FromRole="tbl_Base_Unit" ToRole="tbl_Item_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Brand_Master">
+          <Key>
+            <PropertyRef Name="brandmaster_Id" />
+          </Key>
+          <Property Name="brandmaster_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="manuf_Id" Type="Int32" />
+          <Property Name="bp_Id" Type="Int32" />
+          <Property Name="brand_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_BusinessPartner_Master" Relationship="Self.FK_tbl_Brand_Master_tbl_BusinessPartner_Master" FromRole="tbl_Brand_Master" ToRole="tbl_BusinessPartner_Master" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Brand_Master_tbl_Company_Master" FromRole="tbl_Brand_Master" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Manufacturer" Relationship="Self.FK_tbl_Brand_Master_tbl_Manufacturer" FromRole="tbl_Brand_Master" ToRole="tbl_Manufacturer" />
+        </EntityType>
+        <EntityType Name="tbl_BusinessPartner_Master">
+          <Key>
+            <PropertyRef Name="bp_Id" />
+          </Key>
+          <Property Name="bp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="currency_Id" Type="Int32" />
+          <Property Name="cntp_Id" Type="Int32" />
+          <Property Name="bp_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="bp_type" Type="Int32" />
+          <Property Name="order_type" Type="Int32" />
+          <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="credit_limit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="tax_id1" Type="Int32" />
+          <Property Name="tax_id2" Type="Int32" />
+          <Property Name="perm_accno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="err_msg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Brand_Master" Relationship="Self.FK_tbl_Brand_Master_tbl_BusinessPartner_Master" FromRole="tbl_BusinessPartner_Master" ToRole="tbl_Brand_Master" />
+          <NavigationProperty Name="tbl_Cntp_Person" Relationship="Self.FK_tbl_BusinessPartner_Master_tbl_Cntp_Person" FromRole="tbl_BusinessPartner_Master" ToRole="tbl_Cntp_Person" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_BusinessPartner_Master_tbl_Company_Master" FromRole="tbl_BusinessPartner_Master" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Currency_Master" Relationship="Self.FK_tbl_BusinessPartner_Master_tbl_Currency_Master" FromRole="tbl_BusinessPartner_Master" ToRole="tbl_Currency_Master" />
+          <NavigationProperty Name="tbl_Item_Master" Relationship="Self.FK_tbl_Item_Master_tbl_BusinessPartner_Master" FromRole="tbl_BusinessPartner_Master" ToRole="tbl_Item_Master" />
+          <NavigationProperty Name="tbl_Manufacturer" Relationship="Self.FK_tbl_Manufacturer_tbl_BusinessPartner_Master" FromRole="tbl_BusinessPartner_Master" ToRole="tbl_Manufacturer" />
+        </EntityType>
+        <EntityType Name="tbl_Cntp_Person">
+          <Key>
+            <PropertyRef Name="cntp_Id" />
+          </Key>
+          <Property Name="cntp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cntp_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="salution" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cntp_lastname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cntp_displayname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="designation_Id" Type="Int32" />
+          <Property Name="office_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="addr1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="addr2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="area" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="state_id" Type="Int32" />
+          <Property Name="zip_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="map" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="err_msg" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_BusinessPartner_Master" Relationship="Self.FK_tbl_BusinessPartner_Master_tbl_Cntp_Person" FromRole="tbl_Cntp_Person" ToRole="tbl_BusinessPartner_Master" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Cntp_Person_tbl_Company_Master" FromRole="tbl_Cntp_Person" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_State_Master" Relationship="Self.FK_tbl_Cntp_Person_tbl_State_Master" FromRole="tbl_Cntp_Person" ToRole="tbl_State_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Company_Master">
+          <Key>
+            <PropertyRef Name="cmpny_Id" />
+          </Key>
+          <Property Name="cmpny_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cmpny_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="display_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="startdate" Type="DateTime" Precision="3" />
+          <Property Name="cin" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="base_currency_code" Type="Int32" />
+          <Property Name="reg_phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reg_phone_status" Type="Int32" />
+          <Property Name="reg_email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reg_email_status" Type="Int32" />
+          <Property Name="tin" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tan" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="pan" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cst" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="gst" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cntp_person_Id" Type="Int32" />
+          <Property Name="eu_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="eu_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="logo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="err_msg" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Bank" Relationship="Self.FK_tbl_Bank_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Bank" />
+          <NavigationProperty Name="tbl_Bank_Master" Relationship="Self.FK_tbl_Bank_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Bank_Master" />
+          <NavigationProperty Name="tbl_Base_Unit" Relationship="Self.FK_tbl_Base_Unit_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Base_Unit" />
+          <NavigationProperty Name="tbl_Brand_Master" Relationship="Self.FK_tbl_Brand_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Brand_Master" />
+          <NavigationProperty Name="tbl_BusinessPartner_Master" Relationship="Self.FK_tbl_BusinessPartner_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_BusinessPartner_Master" />
+          <NavigationProperty Name="tbl_Cntp_Person" Relationship="Self.FK_tbl_Cntp_Person_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Cntp_Person" />
+          <NavigationProperty Name="tbl_Currency_Master" Relationship="Self.FK_tbl_Currency_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Currency_Master" />
+          <NavigationProperty Name="tbl_Item_Group" Relationship="Self.FK_tbl_Item_Group_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Item_Group" />
+          <NavigationProperty Name="tbl_Item_Master" Relationship="Self.FK_tbl_Item_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Item_Master" />
+          <NavigationProperty Name="tbl_Item_Type" Relationship="Self.FK_tbl_Item_Type_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Item_Type" />
+          <NavigationProperty Name="tbl_Manufacturer" Relationship="Self.FK_tbl_Manufacturer_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Manufacturer" />
+          <NavigationProperty Name="tbl_Payment_Mode" Relationship="Self.FK_tbl_Payment_Mode_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Payment_Mode" />
+          <NavigationProperty Name="tbl_State_Master" Relationship="Self.FK_tbl_State_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_State_Master" />
+          <NavigationProperty Name="tbl_Tax_Master" Relationship="Self.FK_tbl_Tax_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Tax_Master" />
+          <NavigationProperty Name="tbl_Tax" Relationship="Self.FK_tbl_Tax_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_Tax" />
+          <NavigationProperty Name="tbl_TransactionLog_Master" Relationship="Self.FK_tbl_TransactionLog_Master_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_TransactionLog_Master" />
+          <NavigationProperty Name="tbl_User" Relationship="Self.FK_tbl_User_tbl_Company_Master" FromRole="tbl_Company_Master" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="tbl_Country_Master">
+          <Key>
+            <PropertyRef Name="cntry_Id" />
+          </Key>
+          <Property Name="cntry_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cntry_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_State_Master" Relationship="Self.FK_tbl_State_Master_tbl_Country_Master" FromRole="tbl_Country_Master" ToRole="tbl_State_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Currency_Master">
+          <Key>
+            <PropertyRef Name="currency_id" />
+          </Key>
+          <Property Name="currency_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="decimal" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_BusinessPartner_Master" Relationship="Self.FK_tbl_BusinessPartner_Master_tbl_Currency_Master" FromRole="tbl_Currency_Master" ToRole="tbl_BusinessPartner_Master" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Currency_Master_tbl_Company_Master" FromRole="tbl_Currency_Master" ToRole="tbl_Company_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Item_Group">
+          <Key>
+            <PropertyRef Name="itemgrp_Id" />
+          </Key>
+          <Property Name="itemgrp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="taxmaster_Id" Type="Int32" />
+          <Property Name="itemgrp_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cess" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Item_Group_tbl_Company_Master" FromRole="tbl_Item_Group" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Tax_Master" Relationship="Self.FK_tbl_Item_Group_tbl_Tax_Master" FromRole="tbl_Item_Group" ToRole="tbl_Tax_Master" />
+          <NavigationProperty Name="tbl_Item_Master" Relationship="Self.FK_tbl_Item_Master_tbl_Item_Group" FromRole="tbl_Item_Group" ToRole="tbl_Item_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Item_Master">
+          <Key>
+            <PropertyRef Name="itemmaster_Id" />
+          </Key>
+          <Property Name="itemmaster_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="itemtype_Id" Type="Int32" />
+          <Property Name="bu_Id" Type="Int32" />
+          <Property Name="manuf_Id" Type="Int32" />
+          <Property Name="bp_id" Type="Int32" />
+          <Property Name="item_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="std" Type="Int32" />
+          <Property Name="sup_barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="srch_key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="itemgrp_Id" Type="Int32" />
+          <Property Name="barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mrp" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="retail_price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="purchase_price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="item_cost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="inventory_val" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="rec_level" Type="Int32" />
+          <Property Name="rec_qry" Type="Int32" />
+          <Property Name="eco_order_qty" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Base_Unit" Relationship="Self.FK_tbl_Item_Master_tbl_Base_Unit" FromRole="tbl_Item_Master" ToRole="tbl_Base_Unit" />
+          <NavigationProperty Name="tbl_BusinessPartner_Master" Relationship="Self.FK_tbl_Item_Master_tbl_BusinessPartner_Master" FromRole="tbl_Item_Master" ToRole="tbl_BusinessPartner_Master" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Item_Master_tbl_Company_Master" FromRole="tbl_Item_Master" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Item_Group" Relationship="Self.FK_tbl_Item_Master_tbl_Item_Group" FromRole="tbl_Item_Master" ToRole="tbl_Item_Group" />
+          <NavigationProperty Name="tbl_Manufacturer" Relationship="Self.FK_tbl_Item_Master_tbl_Manufacturer" FromRole="tbl_Item_Master" ToRole="tbl_Manufacturer" />
+        </EntityType>
+        <EntityType Name="tbl_Item_Type">
+          <Key>
+            <PropertyRef Name="itemtype_Id" />
+          </Key>
+          <Property Name="itemtype_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="itemtype_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Item_Type_tbl_Company_Master" FromRole="tbl_Item_Type" ToRole="tbl_Company_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Manufacturer">
+          <Key>
+            <PropertyRef Name="manuf_Id" />
+          </Key>
+          <Property Name="manuf_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="bp_Id" Type="Int32" />
+          <Property Name="manuf_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Brand_Master" Relationship="Self.FK_tbl_Brand_Master_tbl_Manufacturer" FromRole="tbl_Manufacturer" ToRole="tbl_Brand_Master" />
+          <NavigationProperty Name="tbl_BusinessPartner_Master" Relationship="Self.FK_tbl_Manufacturer_tbl_BusinessPartner_Master" FromRole="tbl_Manufacturer" ToRole="tbl_BusinessPartner_Master" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Manufacturer_tbl_Company_Master" FromRole="tbl_Manufacturer" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Item_Master" Relationship="Self.FK_tbl_Item_Master_tbl_Manufacturer" FromRole="tbl_Manufacturer" ToRole="tbl_Item_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Payment_Mode">
+          <Key>
+            <PropertyRef Name="pmode_Id" />
+          </Key>
+          <Property Name="pmode_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpany_id" Type="Int32" />
+          <Property Name="bank_Id" Type="Int32" />
+          <Property Name="pmode_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="pmode_transaction" Type="Int32" />
+          <Property Name="acc_mode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Bank" Relationship="Self.FK_tbl_Payment_Mode_tbl_Bank" FromRole="tbl_Payment_Mode" ToRole="tbl_Bank" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Payment_Mode_tbl_Company_Master" FromRole="tbl_Payment_Mode" ToRole="tbl_Company_Master" />
+        </EntityType>
+        <EntityType Name="tbl_State_Master">
+          <Key>
+            <PropertyRef Name="state_Id" />
+          </Key>
+          <Property Name="state_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="state_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cntry_Id" Type="Int32" Nullable="false" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Cntp_Person" Relationship="Self.FK_tbl_Cntp_Person_tbl_State_Master" FromRole="tbl_State_Master" ToRole="tbl_Cntp_Person" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_State_Master_tbl_Company_Master" FromRole="tbl_State_Master" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Country_Master" Relationship="Self.FK_tbl_State_Master_tbl_Country_Master" FromRole="tbl_State_Master" ToRole="tbl_Country_Master" />
+          <NavigationProperty Name="tbl_User" Relationship="Self.FK_tbl_User_tbl_State_Master" FromRole="tbl_State_Master" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="tbl_Tax">
+          <Key>
+            <PropertyRef Name="tax_id" />
+          </Key>
+          <Property Name="tax_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_id" Type="Int32" />
+          <Property Name="tax_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Tax_tbl_Company_Master" FromRole="tbl_Tax" ToRole="tbl_Company_Master" />
+        </EntityType>
+        <EntityType Name="tbl_Tax_Master">
+          <Key>
+            <PropertyRef Name="taxmaster_Id" />
+          </Key>
+          <Property Name="taxmaster_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_Id" Type="Int32" />
+          <Property Name="tax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="percentage" Type="Double" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_Tax_Master_tbl_Company_Master" FromRole="tbl_Tax_Master" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_Item_Group" Relationship="Self.FK_tbl_Item_Group_tbl_Tax_Master" FromRole="tbl_Tax_Master" ToRole="tbl_Item_Group" />
+        </EntityType>
+        <EntityType Name="tbl_TransactionLog_Master">
+          <Key>
+            <PropertyRef Name="translog_Id" />
+          </Key>
+          <Property Name="translog_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transaction_Id" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="cmpny_id" Type="Int32" />
+          <Property Name="transaction_date" Type="DateTime" Precision="3" />
+          <Property Name="transaction_status" Type="Int32" />
+          <Property Name="user_Id" Type="Int32" />
+          <Property Name="log_msg" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_TransactionLog_Master_tbl_Company_Master" FromRole="tbl_TransactionLog_Master" ToRole="tbl_Company_Master" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="user_Id" />
+          </Key>
+          <Property Name="user_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_id" Type="Int32" />
+          <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="129" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="area" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="state_id" Type="Int32" />
+          <Property Name="zip_code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="desig" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="updatedby" Type="Int32" />
+          <Property Name="createddate" Type="DateTime" Precision="3" />
+          <Property Name="updateddate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Company_Master" Relationship="Self.FK_tbl_User_tbl_Company_Master" FromRole="tbl_User" ToRole="tbl_Company_Master" />
+          <NavigationProperty Name="tbl_State_Master" Relationship="Self.FK_tbl_User_tbl_State_Master" FromRole="tbl_User" ToRole="tbl_State_Master" />
+        </EntityType>
+        <Association Name="FK_tbl_Bank_Master_tbl_Bank">
+          <End Role="tbl_Bank" Type="Self.tbl_Bank" Multiplicity="1" />
+          <End Role="tbl_Bank_Master" Type="Self.tbl_Bank_Master" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bank">
+              <PropertyRef Name="bank_Id" />
+            </Principal>
+            <Dependent Role="tbl_Bank_Master">
+              <PropertyRef Name="bankmaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Bank_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Bank" Type="Self.tbl_Bank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Bank">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Payment_Mode_tbl_Bank">
+          <End Role="tbl_Bank" Type="Self.tbl_Bank" Multiplicity="0..1" />
+          <End Role="tbl_Payment_Mode" Type="Self.tbl_Payment_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bank">
+              <PropertyRef Name="bank_Id" />
+            </Principal>
+            <Dependent Role="tbl_Payment_Mode">
+              <PropertyRef Name="bank_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Bank_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Bank_Master" Type="Self.tbl_Bank_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Bank_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Base_Unit_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Base_Unit" Type="Self.tbl_Base_Unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Base_Unit">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Base_Unit">
+          <End Role="tbl_Base_Unit" Type="Self.tbl_Base_Unit" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Base_Unit">
+              <PropertyRef Name="bu_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="bu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Brand_Master_tbl_BusinessPartner_Master">
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="0..1" />
+          <End Role="tbl_Brand_Master" Type="Self.tbl_Brand_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="bp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Brand_Master">
+              <PropertyRef Name="bp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Brand_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Brand_Master" Type="Self.tbl_Brand_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Brand_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Brand_Master_tbl_Manufacturer">
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="0..1" />
+          <End Role="tbl_Brand_Master" Type="Self.tbl_Brand_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Manufacturer">
+              <PropertyRef Name="manuf_Id" />
+            </Principal>
+            <Dependent Role="tbl_Brand_Master">
+              <PropertyRef Name="manuf_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusinessPartner_Master_tbl_Cntp_Person">
+          <End Role="tbl_Cntp_Person" Type="Self.tbl_Cntp_Person" Multiplicity="0..1" />
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Cntp_Person">
+              <PropertyRef Name="cntp_Id" />
+            </Principal>
+            <Dependent Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="cntp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusinessPartner_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusinessPartner_Master_tbl_Currency_Master">
+          <End Role="tbl_Currency_Master" Type="Self.tbl_Currency_Master" Multiplicity="0..1" />
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Currency_Master">
+              <PropertyRef Name="currency_id" />
+            </Principal>
+            <Dependent Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="currency_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_BusinessPartner_Master">
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="bp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="bp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Manufacturer_tbl_BusinessPartner_Master">
+          <End Role="tbl_BusinessPartner_Master" Type="Self.tbl_BusinessPartner_Master" Multiplicity="0..1" />
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusinessPartner_Master">
+              <PropertyRef Name="bp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Manufacturer">
+              <PropertyRef Name="bp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Cntp_Person_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Cntp_Person" Type="Self.tbl_Cntp_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Cntp_Person">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Cntp_Person_tbl_State_Master">
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="0..1" />
+          <End Role="tbl_Cntp_Person" Type="Self.tbl_Cntp_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_State_Master">
+              <PropertyRef Name="state_Id" />
+            </Principal>
+            <Dependent Role="tbl_Cntp_Person">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Currency_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Currency_Master" Type="Self.tbl_Currency_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Currency_Master">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Group_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Group" Type="Self.tbl_Item_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Group">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Type_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Type" Type="Self.tbl_Item_Type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Type">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Manufacturer_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Manufacturer">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Payment_Mode_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Payment_Mode" Type="Self.tbl_Payment_Mode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Payment_Mode">
+              <PropertyRef Name="cmpany_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_State_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_State_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tax_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Tax_Master" Type="Self.tbl_Tax_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Tax_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Tax_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_Tax" Type="Self.tbl_Tax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_Tax">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TransactionLog_Master_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_TransactionLog_Master" Type="Self.tbl_TransactionLog_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_TransactionLog_Master">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_User_tbl_Company_Master">
+          <End Role="tbl_Company_Master" Type="Self.tbl_Company_Master" Multiplicity="0..1" />
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Company_Master">
+              <PropertyRef Name="cmpny_Id" />
+            </Principal>
+            <Dependent Role="tbl_User">
+              <PropertyRef Name="cmpny_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_State_Master_tbl_Country_Master">
+          <End Role="tbl_Country_Master" Type="Self.tbl_Country_Master" Multiplicity="1" />
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_Master">
+              <PropertyRef Name="cntry_Id" />
+            </Principal>
+            <Dependent Role="tbl_State_Master">
+              <PropertyRef Name="cntry_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Group_tbl_Tax_Master">
+          <End Role="tbl_Tax_Master" Type="Self.tbl_Tax_Master" Multiplicity="0..1" />
+          <End Role="tbl_Item_Group" Type="Self.tbl_Item_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Tax_Master">
+              <PropertyRef Name="taxmaster_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Group">
+              <PropertyRef Name="taxmaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Item_Group">
+          <End Role="tbl_Item_Group" Type="Self.tbl_Item_Group" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Item_Group">
+              <PropertyRef Name="itemgrp_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="itemgrp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Item_Master_tbl_Manufacturer">
+          <End Role="tbl_Manufacturer" Type="Self.tbl_Manufacturer" Multiplicity="0..1" />
+          <End Role="tbl_Item_Master" Type="Self.tbl_Item_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Manufacturer">
+              <PropertyRef Name="manuf_Id" />
+            </Principal>
+            <Dependent Role="tbl_Item_Master">
+              <PropertyRef Name="manuf_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_User_tbl_State_Master">
+          <End Role="tbl_State_Master" Type="Self.tbl_State_Master" Multiplicity="0..1" />
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_State_Master">
+              <PropertyRef Name="state_Id" />
+            </Principal>
+            <Dependent Role="tbl_User">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Bank" EntityType="Self.tbl_Bank" />
+          <EntitySet Name="tbl_Bank_Master" EntityType="Self.tbl_Bank_Master" />
+          <EntitySet Name="tbl_Base_Unit" EntityType="Self.tbl_Base_Unit" />
+          <EntitySet Name="tbl_Brand_Master" EntityType="Self.tbl_Brand_Master" />
+          <EntitySet Name="tbl_BusinessPartner_Master" EntityType="Self.tbl_BusinessPartner_Master" />
+          <EntitySet Name="tbl_Cntp_Person" EntityType="Self.tbl_Cntp_Person" />
+          <EntitySet Name="tbl_Company_Master" EntityType="Self.tbl_Company_Master" />
+          <EntitySet Name="tbl_Country_Master" EntityType="Self.tbl_Country_Master" />
+          <EntitySet Name="tbl_Currency_Master" EntityType="Self.tbl_Currency_Master" />
+          <EntitySet Name="tbl_Item_Group" EntityType="Self.tbl_Item_Group" />
+          <EntitySet Name="tbl_Item_Master" EntityType="Self.tbl_Item_Master" />
+          <EntitySet Name="tbl_Item_Type" EntityType="Self.tbl_Item_Type" />
+          <EntitySet Name="tbl_Manufacturer" EntityType="Self.tbl_Manufacturer" />
+          <EntitySet Name="tbl_Payment_Mode" EntityType="Self.tbl_Payment_Mode" />
+          <EntitySet Name="tbl_State_Master" EntityType="Self.tbl_State_Master" />
+          <EntitySet Name="tbl_Tax" EntityType="Self.tbl_Tax" />
+          <EntitySet Name="tbl_Tax_Master" EntityType="Self.tbl_Tax_Master" />
+          <EntitySet Name="tbl_TransactionLog_Master" EntityType="Self.tbl_TransactionLog_Master" />
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+          <AssociationSet Name="FK_tbl_Bank_Master_tbl_Bank" Association="Self.FK_tbl_Bank_Master_tbl_Bank">
+            <End Role="tbl_Bank" EntitySet="tbl_Bank" />
+            <End Role="tbl_Bank_Master" EntitySet="tbl_Bank_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Bank_tbl_Company_Master" Association="Self.FK_tbl_Bank_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Bank" EntitySet="tbl_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Payment_Mode_tbl_Bank" Association="Self.FK_tbl_Payment_Mode_tbl_Bank">
+            <End Role="tbl_Bank" EntitySet="tbl_Bank" />
+            <End Role="tbl_Payment_Mode" EntitySet="tbl_Payment_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Bank_Master_tbl_Company_Master" Association="Self.FK_tbl_Bank_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Bank_Master" EntitySet="tbl_Bank_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Base_Unit_tbl_Company_Master" Association="Self.FK_tbl_Base_Unit_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Base_Unit" EntitySet="tbl_Base_Unit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Base_Unit" Association="Self.FK_tbl_Item_Master_tbl_Base_Unit">
+            <End Role="tbl_Base_Unit" EntitySet="tbl_Base_Unit" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Brand_Master_tbl_BusinessPartner_Master" Association="Self.FK_tbl_Brand_Master_tbl_BusinessPartner_Master">
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+            <End Role="tbl_Brand_Master" EntitySet="tbl_Brand_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Brand_Master_tbl_Company_Master" Association="Self.FK_tbl_Brand_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Brand_Master" EntitySet="tbl_Brand_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Brand_Master_tbl_Manufacturer" Association="Self.FK_tbl_Brand_Master_tbl_Manufacturer">
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+            <End Role="tbl_Brand_Master" EntitySet="tbl_Brand_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusinessPartner_Master_tbl_Cntp_Person" Association="Self.FK_tbl_BusinessPartner_Master_tbl_Cntp_Person">
+            <End Role="tbl_Cntp_Person" EntitySet="tbl_Cntp_Person" />
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusinessPartner_Master_tbl_Company_Master" Association="Self.FK_tbl_BusinessPartner_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusinessPartner_Master_tbl_Currency_Master" Association="Self.FK_tbl_BusinessPartner_Master_tbl_Currency_Master">
+            <End Role="tbl_Currency_Master" EntitySet="tbl_Currency_Master" />
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_BusinessPartner_Master" Association="Self.FK_tbl_Item_Master_tbl_BusinessPartner_Master">
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Manufacturer_tbl_BusinessPartner_Master" Association="Self.FK_tbl_Manufacturer_tbl_BusinessPartner_Master">
+            <End Role="tbl_BusinessPartner_Master" EntitySet="tbl_BusinessPartner_Master" />
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Cntp_Person_tbl_Company_Master" Association="Self.FK_tbl_Cntp_Person_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Cntp_Person" EntitySet="tbl_Cntp_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Cntp_Person_tbl_State_Master" Association="Self.FK_tbl_Cntp_Person_tbl_State_Master">
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+            <End Role="tbl_Cntp_Person" EntitySet="tbl_Cntp_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Currency_Master_tbl_Company_Master" Association="Self.FK_tbl_Currency_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Currency_Master" EntitySet="tbl_Currency_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Group_tbl_Company_Master" Association="Self.FK_tbl_Item_Group_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Item_Group" EntitySet="tbl_Item_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Company_Master" Association="Self.FK_tbl_Item_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Type_tbl_Company_Master" Association="Self.FK_tbl_Item_Type_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Item_Type" EntitySet="tbl_Item_Type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Manufacturer_tbl_Company_Master" Association="Self.FK_tbl_Manufacturer_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Payment_Mode_tbl_Company_Master" Association="Self.FK_tbl_Payment_Mode_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Payment_Mode" EntitySet="tbl_Payment_Mode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_State_Master_tbl_Company_Master" Association="Self.FK_tbl_State_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tax_Master_tbl_Company_Master" Association="Self.FK_tbl_Tax_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Tax_Master" EntitySet="tbl_Tax_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Tax_tbl_Company_Master" Association="Self.FK_tbl_Tax_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_Tax" EntitySet="tbl_Tax" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TransactionLog_Master_tbl_Company_Master" Association="Self.FK_tbl_TransactionLog_Master_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_TransactionLog_Master" EntitySet="tbl_TransactionLog_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_User_tbl_Company_Master" Association="Self.FK_tbl_User_tbl_Company_Master">
+            <End Role="tbl_Company_Master" EntitySet="tbl_Company_Master" />
+            <End Role="tbl_User" EntitySet="tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_State_Master_tbl_Country_Master" Association="Self.FK_tbl_State_Master_tbl_Country_Master">
+            <End Role="tbl_Country_Master" EntitySet="tbl_Country_Master" />
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Group_tbl_Tax_Master" Association="Self.FK_tbl_Item_Group_tbl_Tax_Master">
+            <End Role="tbl_Tax_Master" EntitySet="tbl_Tax_Master" />
+            <End Role="tbl_Item_Group" EntitySet="tbl_Item_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Item_Group" Association="Self.FK_tbl_Item_Master_tbl_Item_Group">
+            <End Role="tbl_Item_Group" EntitySet="tbl_Item_Group" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Item_Master_tbl_Manufacturer" Association="Self.FK_tbl_Item_Master_tbl_Manufacturer">
+            <End Role="tbl_Manufacturer" EntitySet="tbl_Manufacturer" />
+            <End Role="tbl_Item_Master" EntitySet="tbl_Item_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_User_tbl_State_Master" Association="Self.FK_tbl_User_tbl_State_Master">
+            <End Role="tbl_State_Master" EntitySet="tbl_State_Master" />
+            <End Role="tbl_User" EntitySet="tbl_User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="tbl_Bank">
+            <EntityTypeMapping TypeName="Model.tbl_Bank">
+              <MappingFragment StoreEntitySet="tbl_Bank">
+                <ScalarProperty Name="bank_Id" ColumnName="bank_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="bank_code" ColumnName="bank_code" />
+                <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Bank_Master">
+            <EntityTypeMapping TypeName="Model.tbl_Bank_Master">
+              <MappingFragment StoreEntitySet="tbl_Bank_Master">
+                <ScalarProperty Name="bankmaster_Id" ColumnName="bankmaster_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+                <ScalarProperty Name="acc_type" ColumnName="acc_type" />
+                <ScalarProperty Name="cntp_person_Id" ColumnName="cntp_person_Id" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="iban" ColumnName="iban" />
+                <ScalarProperty Name="ifsc" ColumnName="ifsc" />
+                <ScalarProperty Name="swift" ColumnName="swift" />
+                <ScalarProperty Name="micr" ColumnName="micr" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Base_Unit">
+            <EntityTypeMapping TypeName="Model.tbl_Base_Unit">
+              <MappingFragment StoreEntitySet="tbl_Base_Unit">
+                <ScalarProperty Name="bu_Id" ColumnName="bu_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="bu_name" ColumnName="bu_name" />
+                <ScalarProperty Name="decimal" ColumnName="decimal" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Brand_Master">
+            <EntityTypeMapping TypeName="Model.tbl_Brand_Master">
+              <MappingFragment StoreEntitySet="tbl_Brand_Master">
+                <ScalarProperty Name="brandmaster_Id" ColumnName="brandmaster_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="manuf_Id" ColumnName="manuf_Id" />
+                <ScalarProperty Name="bp_Id" ColumnName="bp_Id" />
+                <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BusinessPartner_Master">
+            <EntityTypeMapping TypeName="Model.tbl_BusinessPartner_Master">
+              <MappingFragment StoreEntitySet="tbl_BusinessPartner_Master">
+                <ScalarProperty Name="bp_Id" ColumnName="bp_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="currency_Id" ColumnName="currency_Id" />
+                <ScalarProperty Name="cntp_Id" ColumnName="cntp_Id" />
+                <ScalarProperty Name="bp_name" ColumnName="bp_name" />
+                <ScalarProperty Name="bp_type" ColumnName="bp_type" />
+                <ScalarProperty Name="order_type" ColumnName="order_type" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="credit_limit" ColumnName="credit_limit" />
+                <ScalarProperty Name="tax_id1" ColumnName="tax_id1" />
+                <ScalarProperty Name="tax_id2" ColumnName="tax_id2" />
+                <ScalarProperty Name="perm_accno" ColumnName="perm_accno" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="err_msg" ColumnName="err_msg" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Cntp_Person">
+            <EntityTypeMapping TypeName="Model.tbl_Cntp_Person">
+              <MappingFragment StoreEntitySet="tbl_Cntp_Person">
+                <ScalarProperty Name="cntp_Id" ColumnName="cntp_Id" />
+                <ScalarProperty Name="cntp_name" ColumnName="cntp_name" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="salution" ColumnName="salution" />
+                <ScalarProperty Name="cntp_lastname" ColumnName="cntp_lastname" />
+                <ScalarProperty Name="cntp_displayname" ColumnName="cntp_displayname" />
+                <ScalarProperty Name="designation_Id" ColumnName="designation_Id" />
+                <ScalarProperty Name="office_phone" ColumnName="office_phone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="addr1" ColumnName="addr1" />
+                <ScalarProperty Name="addr2" ColumnName="addr2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+                <ScalarProperty Name="map" ColumnName="map" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="err_msg" ColumnName="err_msg" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Company_Master">
+            <EntityTypeMapping TypeName="Model.tbl_Company_Master">
+              <MappingFragment StoreEntitySet="tbl_Company_Master">
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="cmpny_code" ColumnName="cmpny_code" />
+                <ScalarProperty Name="cmpny_name" ColumnName="cmpny_name" />
+                <ScalarProperty Name="display_name" ColumnName="display_name" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="cin" ColumnName="cin" />
+                <ScalarProperty Name="base_currency_code" ColumnName="base_currency_code" />
+                <ScalarProperty Name="reg_phone" ColumnName="reg_phone" />
+                <ScalarProperty Name="reg_phone_status" ColumnName="reg_phone_status" />
+                <ScalarProperty Name="reg_email" ColumnName="reg_email" />
+                <ScalarProperty Name="reg_email_status" ColumnName="reg_email_status" />
+                <ScalarProperty Name="tin" ColumnName="tin" />
+                <ScalarProperty Name="tan" ColumnName="tan" />
+                <ScalarProperty Name="pan" ColumnName="pan" />
+                <ScalarProperty Name="cst" ColumnName="cst" />
+                <ScalarProperty Name="gst" ColumnName="gst" />
+                <ScalarProperty Name="cntp_person_Id" ColumnName="cntp_person_Id" />
+                <ScalarProperty Name="eu_code" ColumnName="eu_code" />
+                <ScalarProperty Name="eu_name" ColumnName="eu_name" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="err_msg" ColumnName="err_msg" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Country_Master">
+            <EntityTypeMapping TypeName="Model.tbl_Country_Master">
+              <MappingFragment StoreEntitySet="tbl_Country_Master">
+                <ScalarProperty Name="cntry_Id" ColumnName="cntry_Id" />
+                <ScalarProperty Name="cntry_name" ColumnName="cntry_name" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Currency_Master">
+            <EntityTypeMapping TypeName="Model.tbl_Currency_Master">
+              <MappingFragment StoreEntitySet="tbl_Currency_Master">
+                <ScalarProperty Name="currency_id" ColumnName="currency_id" />
+                <ScalarProperty Name="cmpny_id" ColumnName="cmpny_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="decimal" ColumnName="decimal" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Item_Group">
+            <EntityTypeMapping TypeName="Model.tbl_Item_Group">
+              <MappingFragment StoreEntitySet="tbl_Item_Group">
+                <ScalarProperty Name="itemgrp_Id" ColumnName="itemgrp_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="taxmaster_Id" ColumnName="taxmaster_Id" />
+                <ScalarProperty Name="itemgrp_name" ColumnName="itemgrp_name" />
+                <ScalarProperty Name="cess" ColumnName="cess" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Item_Master">
+            <EntityTypeMapping TypeName="Model.tbl_Item_Master">
+              <MappingFragment StoreEntitySet="tbl_Item_Master">
+                <ScalarProperty Name="itemmaster_Id" ColumnName="itemmaster_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="itemtype_Id" ColumnName="itemtype_Id" />
+                <ScalarProperty Name="bu_Id" ColumnName="bu_Id" />
+                <ScalarProperty Name="manuf_Id" ColumnName="manuf_Id" />
+                <ScalarProperty Name="bp_id" ColumnName="bp_id" />
+                <ScalarProperty Name="item_name" ColumnName="item_name" />
+                <ScalarProperty Name="std" ColumnName="std" />
+                <ScalarProperty Name="sup_barcode" ColumnName="sup_barcode" />
+                <ScalarProperty Name="srch_key" ColumnName="srch_key" />
+                <ScalarProperty Name="itemgrp_Id" ColumnName="itemgrp_Id" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="mrp" ColumnName="mrp" />
+                <ScalarProperty Name="retail_price" ColumnName="retail_price" />
+                <ScalarProperty Name="purchase_price" ColumnName="purchase_price" />
+                <ScalarProperty Name="item_cost" ColumnName="item_cost" />
+                <ScalarProperty Name="inventory_val" ColumnName="inventory_val" />
+                <ScalarProperty Name="rec_level" ColumnName="rec_level" />
+                <ScalarProperty Name="rec_qry" ColumnName="rec_qry" />
+                <ScalarProperty Name="eco_order_qty" ColumnName="eco_order_qty" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Item_Type">
+            <EntityTypeMapping TypeName="Model.tbl_Item_Type">
+              <MappingFragment StoreEntitySet="tbl_Item_Type">
+                <ScalarProperty Name="itemtype_Id" ColumnName="itemtype_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="itemtype_name" ColumnName="itemtype_name" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Manufacturer">
+            <EntityTypeMapping TypeName="Model.tbl_Manufacturer">
+              <MappingFragment StoreEntitySet="tbl_Manufacturer">
+                <ScalarProperty Name="manuf_Id" ColumnName="manuf_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="bp_Id" ColumnName="bp_Id" />
+                <ScalarProperty Name="manuf_name" ColumnName="manuf_name" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Payment_Mode">
+            <EntityTypeMapping TypeName="Model.tbl_Payment_Mode">
+              <MappingFragment StoreEntitySet="tbl_Payment_Mode">
+                <ScalarProperty Name="pmode_Id" ColumnName="pmode_Id" />
+                <ScalarProperty Name="cmpany_id" ColumnName="cmpany_id" />
+                <ScalarProperty Name="bank_Id" ColumnName="bank_Id" />
+                <ScalarProperty Name="pmode_name" ColumnName="pmode_name" />
+                <ScalarProperty Name="pmode_transaction" ColumnName="pmode_transaction" />
+                <ScalarProperty Name="acc_mode" ColumnName="acc_mode" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_State_Master">
+            <EntityTypeMapping TypeName="Model.tbl_State_Master">
+              <MappingFragment StoreEntitySet="tbl_State_Master">
+                <ScalarProperty Name="state_Id" ColumnName="state_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="state_name" ColumnName="state_name" />
+                <ScalarProperty Name="cntry_Id" ColumnName="cntry_Id" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Tax">
+            <EntityTypeMapping TypeName="Model.tbl_Tax">
+              <MappingFragment StoreEntitySet="tbl_Tax">
+                <ScalarProperty Name="tax_id" ColumnName="tax_id" />
+                <ScalarProperty Name="cmpny_id" ColumnName="cmpny_id" />
+                <ScalarProperty Name="tax_name" ColumnName="tax_name" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Tax_Master">
+            <EntityTypeMapping TypeName="Model.tbl_Tax_Master">
+              <MappingFragment StoreEntitySet="tbl_Tax_Master">
+                <ScalarProperty Name="taxmaster_Id" ColumnName="taxmaster_Id" />
+                <ScalarProperty Name="cmpny_Id" ColumnName="cmpny_Id" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TransactionLog_Master">
+            <EntityTypeMapping TypeName="Model.tbl_TransactionLog_Master">
+              <MappingFragment StoreEntitySet="tbl_TransactionLog_Master">
+                <ScalarProperty Name="translog_Id" ColumnName="translog_Id" />
+                <ScalarProperty Name="transaction_Id" ColumnName="transaction_Id" />
+                <ScalarProperty Name="cmpny_id" ColumnName="cmpny_id" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="transaction_status" ColumnName="transaction_status" />
+                <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+                <ScalarProperty Name="log_msg" ColumnName="log_msg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_User">
+            <EntityTypeMapping TypeName="Model.tbl_User">
+              <MappingFragment StoreEntitySet="tbl_User">
+                <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+                <ScalarProperty Name="cmpny_id" ColumnName="cmpny_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+                <ScalarProperty Name="desig" ColumnName="desig" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

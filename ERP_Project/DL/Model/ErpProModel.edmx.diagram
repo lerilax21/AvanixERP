@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="490e3804c4374ad5803293398e07ed19" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.tbl_Bank" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Bank_Master" Width="1.5" PointX="5.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Base_Unit" Width="1.5" PointX="3" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Brand_Master" Width="1.5" PointX="3" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_BusinessPartner_Master" Width="1.5" PointX="5.25" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Cntp_Person" Width="1.5" PointX="3" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Company_Master" Width="1.5" PointX="0.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Country_Master" Width="1.5" PointX="5.75" PointY="46.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Currency_Master" Width="1.5" PointX="3" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Item_Group" Width="1.5" PointX="5.25" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Item_Master" Width="1.5" PointX="8.25" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Item_Type" Width="1.5" PointX="3" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Manufacturer" Width="1.5" PointX="10.5" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Payment_Mode" Width="1.5" PointX="8.25" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_State_Master" Width="1.5" PointX="8" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Tax" Width="1.5" PointX="3" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_Tax_Master" Width="1.5" PointX="3" PointY="70" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_TransactionLog_Master" Width="1.5" PointX="3" PointY="74.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tbl_User" Width="1.5" PointX="13.25" PointY="36.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_tbl_Bank_Master_tbl_Bank" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Bank_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Payment_Mode_tbl_Bank" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Bank_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Base_Unit_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Master_tbl_Base_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Brand_Master_tbl_BusinessPartner_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Brand_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Brand_Master_tbl_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_BusinessPartner_Master_tbl_Cntp_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_BusinessPartner_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_BusinessPartner_Master_tbl_Currency_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Master_tbl_BusinessPartner_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Manufacturer_tbl_BusinessPartner_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Cntp_Person_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Cntp_Person_tbl_State_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Currency_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Group_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Type_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Manufacturer_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Payment_Mode_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_State_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Tax_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Tax_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_TransactionLog_Master_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_User_tbl_Company_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_State_Master_tbl_Country_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Group_tbl_Tax_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Master_tbl_Item_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_Item_Master_tbl_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_tbl_User_tbl_State_Master" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
